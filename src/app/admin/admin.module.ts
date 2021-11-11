@@ -9,7 +9,7 @@ import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { FormGameComponent } from './shared/form-game/form-game.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -26,7 +26,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-    FormsModule
   ]
 })
 export class AdminModule { }
