@@ -1,2 +1,27 @@
-<p>layout works!</p>
+<mat-toolbar>
+    <span>FeedClap</span>
+  
+    <button mat-button routerLink="/" class="ms-2">Inicio</button>
+  
+    <button mat-button routerLink="/admin/games" class="ms-2">Juegos</button>
+  
+    <button mat-button routerLink="/admin/libros" class="ms-2">
+      Ayuda
+    </button>
+  
+    <span class="spacer"></span>
+  
+    <button mat-button matBadge="2">
+      <mat-icon>download icon</mat-icon>
+    </button>
+  
+    <button mat-button [matMenuTriggerFor]="menu">
+      <mat-icon>account_circle</mat-icon> Renzo Paredes
+    </button>
+  
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item><mat-icon>logout</mat-icon> Cerrar sesión</button>
+    </mat-menu>
+    
+</mat-toolbar>
 <router-outlet></router-outlet>
