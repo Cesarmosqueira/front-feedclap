@@ -10,7 +10,7 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class GameListComponent implements OnInit {
 
-  displayedColumns:string[]=['title','description'];
+  displayedColumns:string[]=['id','title','description',"reviewPrice","downloadLink"];
 
   game!:MatTableDataSource<Game> ;
 
