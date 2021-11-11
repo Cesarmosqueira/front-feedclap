@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Game } from '../shared/game.model';
 import { GameService } from '../shared/game.service';
-
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-game-list',
@@ -9,15 +10,20 @@ import { GameService } from '../shared/game.service';
 })
 export class GameListComponent implements OnInit {
 
+  displayedColumns:string[]=['title','description'];
+
+  game!:MatTableDataSource<Game> ;
+
   constructor(private gameService:GameService) { }
 
   ngOnInit(): void {
-    this.getAll();
+    this.getAllllll();
   }
 
-  getAll():void{
-    this.gameService.getAllGames()
-    .subscribe((data)=> console.log(data))
+  getAllllll() {
+    this.gameService.getAll().subscribe((data) => {
+      this.game = new MatTableDataSource(data);
+    });
   }
 
 }
