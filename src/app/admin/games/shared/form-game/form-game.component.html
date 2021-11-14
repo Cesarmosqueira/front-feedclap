@@ -12,16 +12,16 @@
             matInput
             type="text"
             placeholder="Título"
-            formControlName= 'title'
+            formControlName= 'name'
           />
   
-          <mat-error *ngIf="form.controls['title'].hasError('required')">
+          <mat-error *ngIf="form.controls['name'].hasError('required')">
             Este campo es obligatorio
           </mat-error>
-          <mat-error *ngIf="form.controls['title'].hasError('minlength')">
+          <mat-error *ngIf="form.controls['name'].hasError('minlength')">
             Debe tener al menos 5 caracteres
           </mat-error>
-          <mat-error *ngIf="form.controls['title'].hasError('maxlength')">
+          <mat-error *ngIf="form.controls['name'].hasError('maxlength')">
             Debe tener 70 caracteres como máximo
           </mat-error>
         </mat-form-field>
@@ -47,24 +47,24 @@
             matInput
             type="number"
             placeholder="Precio"
-            formControlName="price"
+            formControlName="reviewPrice"
           />
-          <mat-error *ngIf="form.controls['price'].hasError('required')">
+          <mat-error *ngIf="form.controls['reviewPrice'].hasError('required')">
             Este campo es obligatorio
           </mat-error>
         </mat-form-field>
 
         <mat-form-field appearance="outline" class="d-block">
             <mat-label>Link de descarga</mat-label>
-            <textarea matInput formControlName="link" row="5"></textarea>
+            <textarea matInput formControlName="downloadLink" row="5"></textarea>
     
-            <mat-error *ngIf="form.controls['link'].hasError('required')">
+            <mat-error *ngIf="form.controls['downloadLink'].hasError('required')">
               Este campo es obligatorio
             </mat-error>
-            <mat-error *ngIf="form.controls['link'].hasError('minlength')">
+            <mat-error *ngIf="form.controls['downloadLink'].hasError('minlength')">
               Debe tener al menos 11 caracteres
             </mat-error>
-            <mat-error *ngIf="form.controls['link'].hasError('maxlength')">
+            <mat-error *ngIf="form.controls['downloadLink'].hasError('maxlength')">
               Debe tener 255 caracteres como máximo
             </mat-error>
           </mat-form-field>

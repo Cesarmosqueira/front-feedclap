@@ -17,7 +17,7 @@ export class FormGameComponent implements OnInit {
 
   loading: boolean = false;
   //@Input() libro?: any;
-  @Input() libro ?:any;
+  @Input() game ?:any;
   @Output() onSave: EventEmitter<any> = new EventEmitter();
 
   constructor(
@@ -28,23 +28,35 @@ export class FormGameComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      title: [
-        this.libro?.name,
+      name: [
+        this.game?.name,
         [
           Validators.required,
           Validators.minLength(3),
           Validators.maxLength(250),
         ],
       ],
-      description: [this.libro?.description, [Validators.required]],
-      price: [this.libro?.reviewPrice, [Validators.min(1)]],
-      link: [this.libro?.downloadLink, [Validators.required]],
+      description: [this.game?.description, [Validators.required]],
+      reviewPrice: [this.game?.reviewPrice, [Validators.min(1)]],
+      downloadLink: [this.game?.downloadLink, [Validators.required]],
 
     });
   }
 
   save(){
-    this.onSave.emit(this.form.value);
+    // this.onSave.emit(this.form.value);
+    let game = new Game();
+    game.id = this.form.value['id'];
+    game.name = this.form.value['name'];
+    game.description = this.form.value['description'];
+    game.reviewPrice = this.form.value['reviewPrice'];
+    game.downloadLink = this.form.value['downloadLink'];
+
+    this.gameService.create(game).subscribe(()=>{
+      this.gameService.getAll().subscribe();
+    })
+
+    this.router.navigate(['admin/games']);
   }
 
 }

@@ -1,7 +1,7 @@
-export interface Game {
-    id:number,
-    name:string,
-    description: null | string,
-    reviewPrice:number,
-    downloadLink:string
+export class Game {
+    id: number | undefined;
+    name: string | undefined;
+    description: null | string | undefined;
+    reviewPrice: number  | undefined;
+    downloadLink: string | undefined;
 }

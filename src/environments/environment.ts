@@ -5,6 +5,7 @@
 export const environment = {
   production: false,
   apiBase: 'https://feedclap.herokuapp.com'
+  //apiBase: 'http://localhost:8080'
 };
 
 /*
