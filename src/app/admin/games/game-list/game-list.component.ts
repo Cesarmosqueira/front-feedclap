@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Game } from '../shared/game.model';
-import { GameService } from '../shared/game.service';
+import { Game } from '../game.model';
+import { GameService } from '../game.service';
 import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
@@ -24,6 +24,10 @@ export class GameListComponent implements OnInit {
     this.gameService.getAll().subscribe((data) => {
       this.game = new MatTableDataSource(data);
     });
+  }
+
+  filtrar(value: string) {
+    this.game.filter = value.trim().toLowerCase();
   }
 
 }

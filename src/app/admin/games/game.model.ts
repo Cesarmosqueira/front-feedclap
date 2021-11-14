@@ -1,7 +1,7 @@
 export interface Game {
     id:number,
     name:string,
-    description:string,
+    description: null | string,
     reviewPrice:number,
     downloadLink:string
 }

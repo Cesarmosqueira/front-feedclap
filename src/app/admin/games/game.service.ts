@@ -14,4 +14,16 @@ export class GameService {
   getAll() {
     return this.http.get<Game[]>(`${this.apiBase}/games`);
   }
+
+  create(game: Game) {
+    return this.http.post(`${this.apiBase}/games`, game);
+  }
+
+  update(id:number, game: Game) {
+    return this.http.put(`${this.apiBase}/games/${id}`, game);
+  }
+
+  delete(id:number) {
+    return this.http.delete(`${this.apiBase}/games/${id}`);
+  }
 }
