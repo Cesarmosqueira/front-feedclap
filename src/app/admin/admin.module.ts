@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGameComponent } from './games/shared/form-game/form-game.component';
+import { InfGameComponent } from './games/inf-game/inf-game.component';
 
 @NgModule({
   declarations: [
@@ -18,6 +19,7 @@ import { FormGameComponent } from './games/shared/form-game/form-game.component'
     GameListComponent,
     EditGameComponent,
     FormGameComponent,
+    InfGameComponent,
   ],
   imports: [
     CommonModule,

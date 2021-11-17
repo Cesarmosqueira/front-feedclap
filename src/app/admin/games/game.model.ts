@@ -5,3 +5,8 @@ export class Game {
     reviewPrice: number  | undefined;
     downloadLink: string | undefined;
 }
+
+export class Genre {
+    id: number | undefined;
+    name: string | undefined;
+}

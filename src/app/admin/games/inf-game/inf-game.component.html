@@ -1,0 +1,20 @@
+<div *ngIf="game">
+    <div>
+        <p  style="text-align:center" ><b>{{game.name}}</b></p>
+    </div>
+    
+    <div>
+        <p> <b>DESCRIPCIÓN:</b>  </p>
+        <p>{{game.description}}</p>
+    </div>
+    
+    <div>
+        <p><b>Valor por Review:</b> {{game.reviewPrice}}$</p>
+    </div>
+    
+    <div>
+        <p><b>Link de descarga:</b></p>
+        <A HREF= "https://www.dropbox.com/"> {{game.downloadLink}} </A>
+    </div>
+</div>
+

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Game } from './game.model';
+import { Game, Genre } from './game.model';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
@@ -25,5 +25,13 @@ export class GameService {
 
   delete(id:number) {
     return this.http.delete(`${this.apiBase}/games/${id}`);
+  }
+
+  getgame(name:string) {
+    return this.http.get<Game>(`${this.apiBase}/games/search/${name}`);
+  }
+
+  getgenres_game(name:string){
+    return this.http.get<Genre[]>(`${this.apiBase}/games/genre/${name}`);
   }
 }
