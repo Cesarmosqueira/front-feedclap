@@ -15,6 +15,9 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { MatAutocompleteModule } from '@angular/material/autocomplete';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { MatRippleModule } from '@angular/material/core';
+import {MatPaginatorIntl, MatPaginatorModule } from '@angular/material/paginator';
+import { MatPaginatorImpl } from './mat-paginator';
 
 @NgModule({
   exports: [
@@ -33,6 +36,9 @@ import { MatExpansionModule } from '@angular/material/expansion';
     MatSnackBarModule,
     MatMenuModule,
     MatProgressSpinnerModule,
+    MatRippleModule,
+    MatPaginatorModule
   ],
+  providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorImpl}]
 })
 export class MaterialModule {}

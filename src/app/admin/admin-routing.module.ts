@@ -4,6 +4,7 @@ import { LayoutComponent } from './layout/layout.component';
 import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { GameListComponent } from './games/game-list/game-list.component';
 import { NewGameComponent } from './games/new-game/new-game.component';
+import { InfGameComponent } from './games/inf-game/inf-game.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
       {
         path:'games/:id/edit',
         component:EditGameComponent,
+      },
+      {
+        path:'games/:game',
+        component:InfGameComponent,
       }
       
     ]

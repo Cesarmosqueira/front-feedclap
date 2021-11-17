@@ -6,11 +6,11 @@ import { LayoutComponent } from './layout/layout.component';
 import { NewGameComponent } from './games/new-game/new-game.component';
 import { GameListComponent } from './games/game-list/game-list.component';
 import { EditGameComponent } from './games/edit-game/edit-game.component';
-import { FormGameComponent } from './shared/form-game/form-game.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
-
+import { FormGameComponent } from './games/shared/form-game/form-game.component';
+import { InfGameComponent } from './games/inf-game/inf-game.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,8 @@ import { ReactiveFormsModule } from '@angular/forms';
     NewGameComponent,
     GameListComponent,
     EditGameComponent,
-    FormGameComponent
+    FormGameComponent,
+    InfGameComponent,
   ],
   imports: [
     CommonModule,
@@ -26,6 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-  ]
+  ],
+
 })
 export class AdminModule { }

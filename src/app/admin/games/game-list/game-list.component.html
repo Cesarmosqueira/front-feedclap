@@ -1,6 +1,22 @@
-
-<h3 class="fw-bold" style="width: 50%;"> </h3>
 <h3 class="fw-bold" style="text-align: center;">Lista de Juegos</h3>
+
+<div class="text-end">
+  <button mat-raised-button color="primary" routerLink="/admin/games/new">
+    Nuevo Juego
+  </button>
+</div>
+
+<div class="example-header">
+  <mat-form-field appearance="standard" class="w-100">
+    <input
+      matInput
+      (keyup)="filtrar($event)"
+      placeholder="Buscar libro"
+      #input
+    />
+  </mat-form-field>
+</div>
+
 <div>
     <table
       mat-table
@@ -33,8 +49,31 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header>DownloadLink</th>
         <td mat-cell *matCellDef="let element">{{ element.downloadLink }}</td>
       </ng-container>
+
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-button
+            color = "primary"
+            [routerLink]="[element.id, 'editar']"
+          >
+            <mat-icon>ballot</mat-icon>
+          </button>
+          <button mat-button color = "primary"
+            (click)="eliminar(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
   
       <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
       <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
     </table>
+    <mat-paginator>
+      [pagesize] = "3"
+      [paseSizeOptions] = "[5,10,25,100]"
+      [length] = "cantidad"
+      (page) = "mostrarMas($event)"
+    </mat-paginator>
   </div>
