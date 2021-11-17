@@ -1,12 +1,12 @@
 export class Game {
-    id: number | undefined;
-    name: string | undefined;
-    description: null | string | undefined;
-    reviewPrice: number  | undefined;
-    downloadLink: string | undefined;
+    id: number;
+    name: string;
+    description: String;
+    reviewPrice: number;
+    downloadLink: string;
 }
 
 export class Genre {
-    id: number | undefined;
-    name: string | undefined;
+    id: number;
+    name: string;
 }

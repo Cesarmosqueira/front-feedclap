@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class InfGameComponent implements OnInit {
   
-  game!:Game;
+  game:Game;
   genres!:Genre[];
   name!:string;
 
@@ -36,6 +36,10 @@ export class InfGameComponent implements OnInit {
       console.log(this.genres);
       //console.log(this.router.url);
     });
+  }
+
+  goCNN() {
+    window.location.href=this.game.downloadLink;
   }
 
 }
