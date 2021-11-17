@@ -18,10 +18,9 @@ export class IndexComponent implements OnInit {
     .getLastGames()
     .subscribe((games) => (this.lastGames=games));
   }
-  navigate(game:Game){
-    
-    this.router.navigate(['./admin/games/'+game.name]);
-    
+  navigate(gameName: string){
+    this.homeService.getGameByName(gameName);
+    this.router.navigate(['./admin/games/'+gameName]); 
   }
 
 }

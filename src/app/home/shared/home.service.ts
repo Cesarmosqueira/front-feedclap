@@ -15,4 +15,8 @@ export class HomeService {
   getLastGames(){
     return this.http.get<Game[]>(`${this.apiBase}/games`);
   }
+
+  getGameByName(gameName: string){
+    return this.http.get<Game>(`${this.apiBase}/games/search/{gameName}`);
+  }
 }

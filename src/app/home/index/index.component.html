@@ -1,25 +1,52 @@
-<div class="banner">
+<!-- <div class="banner">
     <div class="overlay"></div>
 </div>
 
 <div class="container mt-5">
-<h1 class="fw-bold">Últimos Juegos</h1>
+    <h1 class="fw-bold">Últimos Juegos</h1>
 
-<div class="row">
-    <div *ngFor="let game of lastGames" class="col-md-4 mb-3">
-    
-    <mat-card class="order-card" (click)="navigate( game )">
-        <div mat-card-image>
-        <!-- <img [src]="urlImage" /> -->
+    <div class="row">
+        <div *ngFor="let game of lastGames" class="col-md-4 mb-3">
+        
+        <mat-card class="order-card" (click)="navigate( game )">
+            <div mat-card-image>
+            
+            </div>
+
+            <mat-card-content>
+            <h1>{{ game.name }}</h1>
+            <p>{{ game.description }} </p>
+            <p>{{game.downloadLink}}</p>
+            </mat-card-content>
+        </mat-card>
         </div>
-
-        <mat-card-content>
-        <h1>{{ game.name }}</h1>
-        <p>{{ game.description }} </p>
-        <p>{{game.downloadLink}}</p>
-        </mat-card-content>
-    </mat-card>
     </div>
-</div>
-</div>
+</div> -->
+
+<main>
+    <div class="card card-game1">
+        <div class="card-content">
+            <h2>Horizon zero dawn</h2>
+            <button (click)="navigate('horizon zero dawn')">Ver más</button>
+        </div>
+    </div>
+    <div class="card card-game2">
+        <div class="card-content">
+            <h2>God of war 3</h2>
+            <button (click)="navigate('god of war 3')">Ver más</button>
+        </div>
+    </div>
+    <div class="card card-game3">
+        <div class="card-content">
+            <h2>The Last of Us 2</h2>
+            <button (click)="navigate('the last of us 2')">Ver más</button>
+        </div>
+    </div>
+    <div class="card card-game4">
+        <div class="card-content">
+            <h2>Spiderman</h2>
+            <button (click)="navigate('spiderman')">Ver más</button>
+        </div>
+    </div>
+</main>
 <router-outlet></router-outlet>

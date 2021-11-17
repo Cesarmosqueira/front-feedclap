@@ -38,7 +38,7 @@ export class InfGameComponent implements OnInit {
     });
   }
 
-  goCNN() {
+  goToLink() {
     window.location.href=this.game.downloadLink;
   }
 
