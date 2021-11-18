@@ -1,15 +1,15 @@
 <div class="grid-container">
-    
-    <div class="container">
-      <div class = "groupList" *ngFor = "let game of games">
-        
-        <a (click)="navigate(game.name)">
-          <img src='{{game.img_link}}'>
-          <p>{{ game.name}}</p>
-          <p>{{ game.description | slice: 0:100 }}...</p>
-        </a>
-      </div>
-    </div>        
+
+	<div class="container">
+		<div class="groupList" *ngFor="let game of games">
+
+			<a (click)="navigate(game.name)">
+				<img src='{{game.img_link}}'>
+				<p>{{ game.name}}</p>
+				<p>{{ game.description | slice: 0:100 }}...</p>
+			</a>
+		</div>
+	</div>
 
 </div>
 <router-outlet></router-outlet>
