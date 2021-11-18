@@ -1,7 +1,7 @@
 export class Game {
     id: number;
     name: string;
-    description: String;
+    description: string;
     reviewPrice: number;
     downloadLink: string;
 }

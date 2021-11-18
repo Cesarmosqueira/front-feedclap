@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-layout',
@@ -7,9 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutComponent implements OnInit {
 
-  constructor() { }
+  we:any
+  
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+  }
+
+  mostrar() {
+    this.we=document.getElementById("busqueda");
+    this.router.navigate(['./admin/search/'+this.we.value]); 
   }
 
 }

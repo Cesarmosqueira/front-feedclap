@@ -11,6 +11,7 @@ import { MaterialModule } from '../material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FormGameComponent } from './games/shared/form-game/form-game.component';
 import { InfGameComponent } from './games/inf-game/inf-game.component';
+import { SearchGamesComponent } from './games/search-games/search-games.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { InfGameComponent } from './games/inf-game/inf-game.component';
     EditGameComponent,
     FormGameComponent,
     InfGameComponent,
+    SearchGamesComponent,
   ],
   imports: [
     CommonModule,
