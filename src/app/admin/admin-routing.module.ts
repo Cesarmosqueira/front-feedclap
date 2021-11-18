@@ -31,8 +31,7 @@ const routes: Routes = [
       {
         path:'search/:name',
         component:SearchGamesComponent,
-      }
-      
+      },
     ]
   }
 ];
