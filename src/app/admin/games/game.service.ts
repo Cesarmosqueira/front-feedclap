@@ -1,7 +1,7 @@
-import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Game, Genre } from './game.model';
+import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
+import { Game, Genre } from './game.model';
 
 @Injectable({
   providedIn: 'root'
