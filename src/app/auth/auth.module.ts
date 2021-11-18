@@ -7,6 +7,9 @@ import { RegisterComponent } from './register/register.component';
 import { LayoutComponent } from './layout/layout.component';
 import {MaterialModule} from '../material/material.module';
 import {HttpClientModule} from '@angular/common/http';
+import {ReactiveFormsModule} from '@angular/forms';
+import {MatSelectModule} from '@angular/material/select';
+
 
 
 @NgModule({
@@ -19,7 +22,9 @@ import {HttpClientModule} from '@angular/common/http';
     CommonModule,
     AuthRoutingModule,
 	MaterialModule,
-	HttpClientModule
+	HttpClientModule,
+	ReactiveFormsModule,
+	MatSelectModule
   ]
 })
 export class AuthModule { }
