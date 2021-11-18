@@ -1,18 +1,16 @@
-
-<h1 class="fw-bold" *ngIf="name">Resultados de la búsqueda de '{{name}}'</h1>
-
-<div class="container mt-5">
-  
-    <div class="row">
-      <div *ngFor="let game of games" class="col-md-4 mb-3">
-        <mat-card class="order-card">
-  
-          <mat-card-content>
-            <h1>{{ game.name }}</h1>
-            <p>{{ game.description | slice: 0:100 }}...</p>
-          </mat-card-content>
-          
-        </mat-card>
+<div class="grid-container">
+  <h1 class="mat-h1" *ngIf="name">Resultados de la búsqueda de '{{name}}'</h1>
+    
+    <div class="container">
+      <div class = "groupList" *ngFor = "let game of games">
+        
+        <a (click)="navigate(game.name)">
+          <img src='{{game.img_link}}'>
+          <p>{{ game.name}}</p>
+          <p>{{ game.description | slice: 0:100 }}...</p>
+        </a>
       </div>
-    </div>
-  </div>
+    </div>        
+
+</div>
+<router-outlet></router-outlet>

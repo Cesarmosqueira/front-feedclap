@@ -13,6 +13,7 @@ export class SearchGamesComponent implements OnInit {
   name!:string;
   games!:Game[];
 
+
   constructor(private gameService:GameService,private router: Router) { }
 
   ngOnInit(): void {
@@ -25,6 +26,14 @@ export class SearchGamesComponent implements OnInit {
     this.gameService.getgamebykeyword(this.name).subscribe((data) => {
       this.games = data;
     });
+    console.log(this.games)
   }
+
+  navigate(gameName: string){
+    this.gameService.getgame(gameName);
+    this.router.navigate(['./admin/games/'+gameName]); 
+  }
+
+
 
 }

@@ -37,7 +37,7 @@ import { MatPaginatorImpl } from './mat-paginator';
     MatMenuModule,
     MatProgressSpinnerModule,
     MatRippleModule,
-    MatPaginatorModule
+    MatPaginatorModule,
   ],
   providers: [{provide: MatPaginatorIntl, useClass: MatPaginatorImpl}]
 })

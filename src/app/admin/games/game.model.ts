@@ -4,6 +4,7 @@ export class Game {
     description: string;
     reviewPrice: number;
     downloadLink: string;
+    img_link:string;
 }
 
 export class Genre {

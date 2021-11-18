@@ -5,6 +5,7 @@ import { MatSort } from '@angular/material/sort';
 import { Game } from '../game.model';
 import { GameService } from '../game.service';
 import { MatTableDataSource } from '@angular/material/table';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-game-list',
@@ -13,17 +14,11 @@ import { MatTableDataSource } from '@angular/material/table';
 })
 export class GameListComponent implements OnInit {
 
-
-  @ViewChild(MatSort) sort!: MatSort;
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
-  game!:MatTableDataSource<Game> ;
-  displayedColumns:string[]=['id','title','description',"reviewPrice","downloadLink","acciones"];
-  cantidad: number = 0;
+  games!:Game[] ;
 
   constructor(
     private gameService:GameService, 
-    private snackBar: MatSnackBar
-    ) { }
+    private router: Router) { }
 
   ngOnInit(): void {
     this.getAll();
@@ -31,31 +26,13 @@ export class GameListComponent implements OnInit {
 
   getAll() {
     this.gameService.getAll().subscribe((data) => {
-      this.cantidad = data.length;
-      this.game = new MatTableDataSource(data);
-      this.game.sort = this.sort;
+      this.games = data;
     });
   }
 
-  filtrar(event: Event) {
-    this.game.filter = (<HTMLInputElement>event.target).value.trim().toLowerCase();
-  }
-
-  eliminar(id: number){
-    const ok = confirm("¿Estás seguro de eliminar el juego?")
-    if (ok){
-      this.gameService.delete(id).subscribe(()=>{
-        this.getAll();
-      })
-    }
-  }
-
-  mostrarMas(e: any){
-    this.gameService.getAll().subscribe((data) => {
-      this.cantidad = data.length;
-      this.game = new MatTableDataSource(data);
-      this.game.sort = this.sort;
-    });
+  navigate(gameName: string){
+    this.gameService.getgame(gameName);
+    this.router.navigate(['./admin/games/'+gameName]); 
   }
 
 }
