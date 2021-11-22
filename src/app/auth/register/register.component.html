@@ -1,1 +1,35 @@
-<p>register works!</p>
+<mat-card>
+	<mat-card-content>
+		<form>
+			<h3>Register</h3>
+
+			<mat-form-field class=" full-width-input">
+				<input matInput placeholder="Username" formControlName="username" id="username" required>
+			</mat-form-field> <br>
+
+			<mat-form-field class=" full-width-input">
+				<input matInput placeholder="Full name" formControlName="name" id="name" required>
+			</mat-form-field> <br>
+
+			<mat-form-field class="full-width-input">
+				<input matInput type="password" placeholder="Password" formControlName="password" id="password" required>
+			</mat-form-field> <br>
+
+			<mat-form-field class="full-width-input">
+				<input matInput type="email" placeholder="example@gmail.com" formControlName="email" id="email" required>
+			</mat-form-field> <br>
+
+			<mat-form-field appearance="fill">
+				<mat-label>Choose an option</mat-label>
+				<mat-select id="type">
+					<mat-option value="option1">Option 1</mat-option>
+					<mat-option value="option2">Option 2</mat-option>
+				</mat-select>
+			</mat-form-field>
+
+			<button mat-raised-button color="primary" (click)="create_user()">
+				Register
+			</button>
+		</form>
+	</mat-card-content>
+</mat-card>

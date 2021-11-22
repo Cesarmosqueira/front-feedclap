@@ -3,19 +3,20 @@ import { CommonModule } from '@angular/common';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { LoginComponent } from './login/login.component';
+import { MaterialModule } from '../material/material.module';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RegisterComponent } from './register/register.component';
-import { LayoutComponent } from './layout/layout.component';
-
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
-  declarations: [
-    LoginComponent,
-    RegisterComponent,
-    LayoutComponent
-  ],
+  declarations: [LoginComponent,RegisterComponent],
   imports: [
     CommonModule,
-    AuthRoutingModule
-  ]
+    AuthRoutingModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

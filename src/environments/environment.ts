@@ -4,7 +4,8 @@
 
 export const environment = {
 	production: false,
-	apiBase: 'https://feedclap.herokuapp.com',
+	RETRIES: 2,
+	/*apiBase: 'https://feedclap.herokuapp.com',
 	firebase: {
 		apiKey: "AIzaSyCdzMxdhptmEDY3fppi8g6PqaNjTe0OnA4",
 		authDomain: "feedclap.firebaseapp.com",
@@ -13,7 +14,8 @@ export const environment = {
 		messagingSenderId: "605589496425",
 		appId: "1:605589496425:web:69ffd601fa426c49a238f8",
 		measurementId: "G-GZ72H24KD3"
-	}
+	}*/
+	apiBase: 'http://localhost:8080'
 };
 
 /*

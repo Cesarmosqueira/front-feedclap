@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { GameService } from '../game.service';
 import { Router } from '@angular/router';
-import { Game } from '../game.model';
+import { GameService } from '../game.service';
 
 @Component({
   selector: 'app-new-game',
@@ -21,7 +20,7 @@ export class NewGameComponent implements OnInit {
         this.router.navigate(['admin/games']);
         
       },
-      (error) => {}
+      (_error) => {}
     );
   }
 

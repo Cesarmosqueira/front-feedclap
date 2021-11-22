@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { RegisterService } from '../shared/register.service';
+import { User } from '../shared/user.model';
 
 @Component({
   selector: 'app-register',
@@ -7,9 +10,44 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RegisterComponent implements OnInit {
 
-  constructor() { }
+    username!:any;
+    name!:any;
+    email!:any;
+    type!:any;
+    password!:any;
 
-  ngOnInit(): void {
-  }
+		constructor(private registerService: RegisterService, private router: Router) { }
+
+		ngOnInit(): void {
+		}
+
+    create_user() {
+      let userr = new User()
+
+      this.username=document.getElementById("username");
+      this.name=document.getElementById("name");
+      this.email=document.getElementById("email");
+      this.password=document.getElementById("password");
+      this.type=document.getElementById("type");
+
+      userr.username=this.username.value;
+      userr.name=this.name.value;
+      userr.email=this.email.value;
+      userr.password=this.password.value;
+      if(this.type.textContent=="Option 1"){
+        userr.type=1;
+      }
+      if(this.type.textContent=="Option 2"){
+        userr.type=2;
+      }
+
+      this.registerService.register_user(userr).subscribe(
+        () => {
+          this.router.navigate(['auth/login']);
+          
+        },
+        (_error) => {}
+      );
+    }
 
 }

@@ -23,7 +23,7 @@ export class SearchGamesComponent implements OnInit {
   }
 
   getAll() {
-    this.gameService.getgamebykeyword(this.name).subscribe((data) => {
+    this.gameService.getgamesbykeyword(this.name).subscribe((data) => {
       this.games = data;
     });
     console.log(this.games)
