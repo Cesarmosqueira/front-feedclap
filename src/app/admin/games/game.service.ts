@@ -35,7 +35,7 @@ export class GameService {
     return this.http.get<Genre[]>(`${this.apiBase}/games/genre/${name}`);
   }
 
-  getgamebykeyword(name:string){
+  getgamesbykeyword(name:string){
     return this.http.get<Game[]>(`${this.apiBase}/games/searches/${name}`);
   }
 }

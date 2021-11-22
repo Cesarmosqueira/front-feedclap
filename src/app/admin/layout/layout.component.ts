@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { UserStorageService } from 'src/app/auth/shared/user-storage.service';
 
 @Component({
   selector: 'app-layout',
@@ -11,7 +12,7 @@ export class LayoutComponent implements OnInit {
   we:any
   
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,private userStorageService: UserStorageService) { }
 
   ngOnInit(): void {
   }
@@ -25,4 +26,10 @@ export class LayoutComponent implements OnInit {
     
   }
 
+  signOut(): void {
+    this.userStorageService.destroy();
+    this.router.navigate(['/auth/login']);
+  }
 }
+
+

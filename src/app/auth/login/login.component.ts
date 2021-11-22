@@ -1,33 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
-import { UserService } from '../user/user.service';
+import { Router } from '@angular/router';
+import { AuthService } from '../shared/auth.service';
+import { Login } from '../shared/login.model';
+import { UserStorageService } from '../shared/user-storage.service';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
 })
 export class LoginComponent implements OnInit {
-	form = new FormGroup({
-		username: new FormControl('username'),
-		password: new FormControl('password'),
-	});
-	
-	isLogged : boolean = false;
-	constructor(
-		private userService: UserService) { }
+  public login: Login = new Login();
+  public invalid: boolean;
 
-	ngOnInit(): void {
-		this.login("abcd123", "juan");
-	}
+  constructor(
+    private authService: AuthService,
+    private userStorageService: UserStorageService,
+    private router: Router
+  ) {}
 
-	login(token : string, username : string) : void{
-		this.userService.login(token, username)
-			.subscribe((data) => { this.isLogged = data; });
-	}
+  ngOnInit(): void {}
 
-
-	performLogin() {
-		console.log("asd");
-	}
+  onSubmit(): void {
+    this.authService.signIn(this.login).subscribe((data: any) => {
+      //console.log(data);
+      this.userStorageService.set(data['body']);
+      this.router.navigate(['/admin/games']);
+    });
+  }
 }
