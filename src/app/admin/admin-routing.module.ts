@@ -7,6 +7,7 @@ import { NewGameComponent } from './games/new-game/new-game.component';
 import { SearchGamesComponent } from './games/search-games/search-games.component';
 import { LayoutComponent } from './layout/layout.component';
 
+
 const routes: Routes = [
   {
     path:'',
@@ -27,11 +28,9 @@ const routes: Routes = [
       {
         path:'games/:game',
         component:InfGameComponent,
-      },
-      {
-        path:'search/:name',
-        component:SearchGamesComponent,
-      },
+      }
+      
+      
     ]
   }
 ];

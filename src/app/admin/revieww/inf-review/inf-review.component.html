@@ -1,1 +1,25 @@
 <p>inf-review works!</p>
+
+<div *ngIf="review">
+    <div>
+        <p  style="text-align:center" ><b>Review</b></p>
+    </div>
+
+    <div>
+        <p><b>Título Juego:</b> {{game.name}}$</p>
+    </div>
+
+    <div>
+        <p> <b>Descripción:</b>  </p>
+        <p>{{review.description}}</p>
+    </div>
+    
+    <div>
+        <p><b>Rating:</b> {{review.rating}}$</p>
+    </div>
+
+    <div>
+        <p><b>Status:</b> {{review.Status}}$</p>
+    </div>
+
+</div>
