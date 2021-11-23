@@ -4,8 +4,8 @@ import { EditGameComponent } from './games/edit-game/edit-game.component';
 import { GameListComponent } from './games/game-list/game-list.component';
 import { InfGameComponent } from './games/inf-game/inf-game.component';
 import { NewGameComponent } from './games/new-game/new-game.component';
-import { SearchGamesComponent } from './games/search-games/search-games.component';
 import { LayoutComponent } from './layout/layout.component';
+
 
 const routes: Routes = [
   {
@@ -27,11 +27,7 @@ const routes: Routes = [
       {
         path:'games/:game',
         component:InfGameComponent,
-      },
-      {
-        path:'search/:name',
-        component:SearchGamesComponent,
-      },
+      }
     ]
   }
 ];

@@ -23,4 +23,5 @@ export class NewGameComponent implements OnInit {
       (_error) => {}
     );
   }
+
 }
