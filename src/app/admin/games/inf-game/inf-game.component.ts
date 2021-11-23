@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Category, Game, Genre } from '../game.model';
 import { GameService } from '../game.service';
 import { Router } from '@angular/router';
+import {Review} from '../../revieww/revieww.model';
+import {ReviewService} from '../../revieww/revieww.service';
 
 @Component({
   selector: 'app-inf-game',
@@ -13,21 +15,29 @@ export class InfGameComponent implements OnInit {
   game: Game;
   genres!: Genre[];
   categories!: Category[];
+  reviews!: Review[];
   name!: string;
-  something: string[];
+  stars: number[]
 
-  constructor(private gameService:GameService,private router: Router) {}
+  constructor(private gameService:GameService,
+			  private reviewService: ReviewService,
+			  private router: Router) {}
 
   ngOnInit(): void {
     this.name=this.router.url.split("/")[this.router.url.split("/").length-1];
     this.getgame(this.name);
     this.getgenresbygame(this.name);
     this.getcateoriesbygame(this.name);
-	for (var i = 0; i < 11; i++) {
-		this.something.push("this is a test");
-    }
+	this.getReviews(this.name);
   }
-
+  
+  getReviews(name: string) {
+	  this.reviewService.getreviewsbygame(name)
+		  .subscribe((data) => {
+			  console.log('Reviews loaded', data);
+			this.reviews = data;
+	  });
+  }
   getgame(name:string) {
     this.gameService.getgame(name).subscribe((data) => {
       this.game = data;
@@ -49,6 +59,9 @@ export class InfGameComponent implements OnInit {
       console.log('Categories loaded', this.categories);
       //console.log(this.router.url);
     });
+  }
+  numSequence(n: number): Array<number> {
+    return Array(n);
   }
 
   goToLink() {

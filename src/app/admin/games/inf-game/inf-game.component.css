@@ -11,3 +11,7 @@
   margin-right: auto;
   width: 80%;
 }
+
+.banner img {
+	max-width: 750px;
+}

@@ -40,6 +40,21 @@
 			</mat-form-field>
 
 			<mat-form-field appearance="outline" class="d-block">
+				<mat-label>Link de la imagen</mat-label>
+				<textarea matInput formControlName="imgLink" row="5"></textarea>
+
+				<mat-error *ngIf="form.controls['imgLink'].hasError('required')">
+					Este campo es obligatorio
+				</mat-error>
+				<mat-error *ngIf="form.controls['imgLink'].hasError('minlength')">
+					Debe tener al menos 11 caracteres
+				</mat-error>
+				<mat-error *ngIf="form.controls['imgLink'].hasError('maxlength')">
+					Debe tener 255 caracteres como máximo
+				</mat-error>
+			</mat-form-field>
+
+			<mat-form-field appearance="outline" class="d-block">
 				<mat-label>Link de descarga</mat-label>
 				<textarea matInput formControlName="downloadLink" row="5"></textarea>
 

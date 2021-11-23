@@ -1,7 +1,10 @@
 export class Review {
     id: number;
-    description: String;
+    description: string;
     rating: number;
-    status: String;
+    status: string;
     cost: number;
+	state: string;
+	game: number;
+	reviewer: number;
 }
