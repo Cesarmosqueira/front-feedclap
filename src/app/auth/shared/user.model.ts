@@ -6,7 +6,6 @@ export class User {
   nivel: number;
   exp:number;
   password:string;
-  public set(asww:string){
-    this.username=asww;
-  }
+  rank:string;
+  information:string;
 }

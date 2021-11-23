@@ -25,14 +25,19 @@
     <mat-icon>download icon</mat-icon>
   </button>
 
-  <button mat-button [matMenuTriggerFor]="menu">
-    <mat-icon>account_circle</mat-icon> Renzo Paredes
+  <div *ngIf="username == ''">
+    <button routerLink="/auth/login">Iniciar sesión</button>
+    <button routerLink="/auth/register">Registrarse</button>
+  </div>
+
+  <button mat-button [matMenuTriggerFor]="menu" *ngIf="username != ''">
+    <mat-icon>account_circle</mat-icon> {{username}}
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item (click)="signOut()">
-      <mat-icon>logout</mat-icon> Cerrar sesión
-    </button>
+    <button mat-menu-item>Ver perfil</button>
+    <button mat-menu-item *ngIf="tipo == 'desarrollador'">Subir un Juego</button>
+    <button mat-menu-item (click)="signOut()"><mat-icon>logout</mat-icon> Cerrar sesión</button>
   </mat-menu>
   
 </mat-toolbar>

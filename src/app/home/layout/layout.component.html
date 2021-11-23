@@ -1,41 +1,44 @@
 <mat-toolbar>
 
-    <span>FeedClap</span>
-  
-    <button mat-button routerLink="/" class="ms-2">Inicio</button>
-  
-    <button mat-button routerLink="/admin/games" class="ms-2">Juegos</button>
-  
-    <button mat-button routerLink="/admin/libros" class="ms-2">
-      Ayuda
-    </button>
+  <span>FeedClap</span>
 
-    <button mat-button routerLink="/auth/login" class="ms-2">
-      Iniciar sesión
-    </button>
-  
-    <span class="spacer"></span>
+  <button mat-button routerLink="/" class="ms-2">Inicio</button>
 
-    <input class="search_input" placeholder="buscar" type="text" id='busqueda'>
+  <button mat-button routerLink="/admin/games" class="ms-2">Juegos</button>
 
-    <button aria-label="Search" class="submit_btn" (click)="mostrar()">
-      <svg stroke-linecap="round" stroke="currentColor" class="svgicon icon_search" role="img" version="1.1" viewBox="0 0 24 24" stroke-width="3" height="18" stroke-linejoin="round" aria-hidden="" fill="none" width="18">
-        <circle cx="11" cy="11" r="8"></circle>
-        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-      </svg>
-    </button>
-  
-    <button mat-button matBadge="2">
-      <mat-icon>download icon</mat-icon>
-    </button>
-  
-    <button mat-button [matMenuTriggerFor]="menu">
-      <mat-icon>account_circle</mat-icon> Renzo Paredes
-    </button>
-  
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item><mat-icon>logout</mat-icon> Cerrar sesión</button>
-    </mat-menu>
+  <button mat-button routerLink="/admin/libros" class="ms-2">
+    Ayuda
+  </button>
+
+  <span class="spacer"></span>
+
+  <input class="search_input" placeholder="buscar" type="text" id='busqueda'>
+
+  <button aria-label="Search" class="submit_btn" (click)="busqueda()">
+    <svg stroke-linecap="round" stroke="currentColor" class="svgicon icon_search" role="img" version="1.1" viewBox="0 0 24 24" stroke-width="3" height="18" stroke-linejoin="round" aria-hidden="" fill="none" width="18">
+      <circle cx="11" cy="11" r="8"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+  </button>
+
+  <button mat-button matBadge="2">
+    <mat-icon>download icon</mat-icon>
+  </button>
+
+  <div *ngIf="username == ''">
+    <button routerLink="/auth/login">Iniciar sesión</button>
+    <button routerLink="/auth/register">Registrarse</button>
+  </div>
+
+  <button mat-button [matMenuTriggerFor]="menu" *ngIf="username != ''">
+    <mat-icon>account_circle</mat-icon> {{username}}
+  </button>
+
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>Ver perfil</button>
+    <button mat-menu-item *ngIf="tipo == 'desarrollador'">Subir un Juego</button>
+    <button mat-menu-item (click)="signOut()"><mat-icon>logout</mat-icon> Cerrar sesión</button>
+  </mat-menu>
     
 </mat-toolbar>
   

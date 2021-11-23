@@ -10,11 +10,34 @@ import { UserStorageService } from 'src/app/auth/shared/user-storage.service';
 export class LayoutComponent implements OnInit {
 
   we:any
-  
+  username!:string;
+  tipo!:string;
+  private key: string = 'ng-auth';
 
   constructor(private router: Router,private userStorageService: UserStorageService) { }
 
   ngOnInit(): void {
+    this.getall();
+  }
+
+  getall(){
+    let user = localStorage.getItem(this.key);
+
+    if (user) {
+      let objUser = JSON.parse(user);
+      this.username=objUser.user.username;
+
+      if(objUser.user.type==1){
+        this.tipo='desarrollador';
+      }
+      else{
+        this.tipo='reviewer';
+      }
+      
+    }
+    else{
+      this.username="";
+    }
   }
 
   mostrar() {
