@@ -1,8 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { Game } from '../../games/game.model';
-import { Review } from '../revieww.model';
-import { ReviewService } from '../revieww.service';
+import {Component, OnInit} from '@angular/core';
+import {Game} from '../../games/game.model';
+import {Review} from '../revieww.model';
 
 @Component({
   selector: 'app-inf-review',
@@ -15,19 +13,20 @@ export class InfReviewComponent implements OnInit {
   game!:Game[];
   name!:string;
 
-  constructor(private reviewService:ReviewService,private router: Router) { }
+  //constructor(private reviewService:ReviewService,private router: Router) { }
+  constructor() { }
 
   ngOnInit(): void {
-    this.name=this.router.url.split("/")[this.router.url.split("/").length-1];
-    this.getreviewsbygame(this.name);    
+    // this.name=this.router.url.split("/")[this.router.url.split("/").length-1];
+    // this.getreviewsbygame(this.name);    
   }
 
-  getreviewsbygame(name:string) {
-    this.reviewService.getreviews_game(name).subscribe((data) => {
-      this.game = data;
-      console.log(this.game);
-    });
-  }
+  // getreviewsbygame(name:string) {
+  //   this.reviewService.getreviews_game(name).subscribe((data) => {
+  //     this.game = data;
+  //     console.log(this.game);
+  //   });
+  // }
 
 }
 

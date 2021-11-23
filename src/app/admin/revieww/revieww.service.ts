@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Review } from './revieww.model';
 import { environment } from 'src/environments/environment';
-import { Game } from '../games/game.model';
 
 @Injectable({
   providedIn: 'root'
@@ -16,8 +15,8 @@ export class ReviewService {
     return this.http.get<Review[]>(`${this.apiBase}/reviews`);
   }
 
-  getreviews_game(name:string){
-    return this.http.get<Game[]>(`${this.apiBase}/games/game/${name}`);
+  getreviewsbygame(name:string){
+    return this.http.get<Review[]>(`${this.apiBase}/games/reviews/${name}`);
   }
 
   create(revieww: Review) {

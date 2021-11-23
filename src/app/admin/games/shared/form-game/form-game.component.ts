@@ -38,6 +38,7 @@ export class FormGameComponent implements OnInit {
       ],
       description: [this.game?.description, [Validators.required]],
       reviewPrice: [this.game?.reviewPrice, [Validators.min(1)]],
+      imgLink: [this.game?.imgLink, [Validators.required]],
       downloadLink: [this.game?.downloadLink, [Validators.required]],
 
     });
@@ -46,10 +47,10 @@ export class FormGameComponent implements OnInit {
   save(){
     // this.onSave.emit(this.form.value);
     let game = new Game();
-    game.id = this.form.value['id'];
     game.name = this.form.value['name'];
     game.description = this.form.value['description'];
     game.reviewPrice = this.form.value['reviewPrice'];
+    game.img_link = this.form.value['imgLink'];
     game.downloadLink = this.form.value['downloadLink'];
 
     this.gameService.create(game).subscribe(()=>{
