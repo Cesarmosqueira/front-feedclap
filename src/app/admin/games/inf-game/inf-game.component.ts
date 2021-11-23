@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Game, Genre } from '../game.model';
+import { Category, Game, Genre } from '../game.model';
 import { GameService } from '../game.service';
 import { Router } from '@angular/router';
 
@@ -10,9 +10,11 @@ import { Router } from '@angular/router';
 })
 export class InfGameComponent implements OnInit {
   
-  game:Game;
-  genres!:Genre[];
-  name!:string;
+  game: Game;
+  genres!: Genre[];
+  categories!: Category[];
+  name!: string;
+  something: string[];
 
   constructor(private gameService:GameService,private router: Router) {}
 
@@ -20,6 +22,10 @@ export class InfGameComponent implements OnInit {
     this.name=this.router.url.split("/")[this.router.url.split("/").length-1];
     this.getgame(this.name);
     this.getgenresbygame(this.name);
+    this.getcateoriesbygame(this.name);
+	for (var i = 0; i < 11; i++) {
+		this.something.push("this is a test");
+    }
   }
 
   getgame(name:string) {
@@ -33,7 +39,14 @@ export class InfGameComponent implements OnInit {
   getgenresbygame(name:string) {
     this.gameService.getgenres_game(name).subscribe((data) => {
       this.genres = data;
-      console.log(this.genres);
+      console.log('Genres loaded', this.genres);
+      //console.log(this.router.url);
+    });
+  }
+  getcateoriesbygame(name:string) {
+    this.gameService.getcategories_game(name).subscribe((data) => {
+      this.categories = data;
+      console.log('Categories loaded', this.categories);
       //console.log(this.router.url);
     });
   }

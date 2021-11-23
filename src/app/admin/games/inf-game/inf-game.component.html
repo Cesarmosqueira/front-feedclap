@@ -1,21 +1,54 @@
 <div *ngIf="game">
-    <div>
-        <p  style="text-align:center" ><b>{{game.name}}</b></p>
-    </div>
-    
-    <div>
-        <p> <b>DESCRIPCIÓN:</b>  </p>
-        <p>{{game.description}}</p>
-    </div>
-    
-    <div>
-        <p><b>Valor por Review:</b> {{game.reviewPrice}}$</p>
-    </div>
-    
-    <div>
-        <p><b>Link de descarga:</b></p>
-        <button (click)="goToLink()">{{game.downloadLink}}</button>
-    </div>
+	<div class="banner">
+		<img src="https://images3.alphacoders.com/106/thumb-350-1065466.png" style="height: 15%;display: block;">
+		<img>
+		<mat-card>
+			<mat-card-title>{{game.name}}</mat-card-title>
+			<mat-card-subtitle>
+				{{game.description}}
+			</mat-card-subtitle>
+			<mat-card-actions>
+				<button mat-button>
+					<mat-icon>download</mat-icon>Descargar
+				</button>
+				<button mat-button>
+					<mat-icon>attach_money</mat-icon>
+					Dejar review
+				</button>
+			</mat-card-actions>
+			<mat-chip-list aria-label="Fish selection">
+				<div *ngFor="let category of categories">
+					<mat-chip color="primary" selected>
+						{{category.name}}
+					</mat-chip>
+				</div>
+				<div *ngFor="let genre of genres">
+					<mat-chip color="accent" selected>
+						{{genre.name}}
+					</mat-chip>
+				</div>
+			</mat-chip-list>
+		</mat-card>
 
+
+	</div>
+	<br>
+	<div class="reviews">
+		<mat-card class="review-card">
+			<mat-card-header>
+				<mat-card-title>Reviewer Name</mat-card-title>
+				<mat-card-subtitle>Reviewer Level</mat-card-subtitle>
+			</mat-card-header>
+			<mat-card-content>
+				<p>
+					Contenido de la review
+				</p>
+			</mat-card-content>
+			<mat-card-actions>
+				<button mat-button>LIKE</button>
+				<button mat-button>SHARE</button>
+			</mat-card-actions>
+		</mat-card>
+
+	</div>
 </div>
-
