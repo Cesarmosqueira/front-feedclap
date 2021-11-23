@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Review } from './revieww.model';
 import { environment } from 'src/environments/environment';
+import {User} from 'src/app/auth/shared/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -15,8 +16,12 @@ export class ReviewService {
     return this.http.get<Review[]>(`${this.apiBase}/reviews`);
   }
 
-  getreviewsbygame(name:string){
+  getReviewsFromGame(name:string){
     return this.http.get<Review[]>(`${this.apiBase}/games/reviews/${name}`);
+  }
+
+  getReviewerName(reviewerId: number){
+    return this.http.get<User>(`${this.apiBase}/review/reviewer/${reviewerId}`);
   }
 
   create(revieww: Review) {

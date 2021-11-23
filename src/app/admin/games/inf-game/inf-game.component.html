@@ -36,10 +36,10 @@
 	<div class="reviews" *ngFor="let review of reviews">
 		<mat-card class="review-card">
 			<mat-card-header>
-				<mat-card-title>Reviewer Name</mat-card-title>
+				<mat-card-title> {{reviewerMap.get(review.id)}} </mat-card-title>
 				<mat-card-subtitle>
 
-					<span *ngFor="let n of numSequence(6);
+					<span *ngFor="let n of numSequence(review.rating);
 				   let i = index;">
 						<mat-icon>star</mat-icon>
 
