@@ -1,6 +1,6 @@
 <div *ngIf="game">
 	<div class="banner">
-		<img src="https://images3.alphacoders.com/106/thumb-350-1065466.png" style="height: 15%;display: block;">
+		<img src='{{game.img_link}}'>
 		<img>
 		<mat-card>
 			<mat-card-title>{{game.name}}</mat-card-title>
@@ -33,15 +33,23 @@
 
 	</div>
 	<br>
-	<div class="reviews">
+	<div class="reviews" *ngFor="let review of reviews">
 		<mat-card class="review-card">
 			<mat-card-header>
-				<mat-card-title>Reviewer Name</mat-card-title>
-				<mat-card-subtitle>Reviewer Level</mat-card-subtitle>
+				<mat-card-title> {{reviewerMap.get(review.id)}} </mat-card-title>
+				<mat-card-subtitle>
+
+					<span *ngFor="let n of numSequence(review.rating);
+				   let i = index;">
+						<mat-icon>star</mat-icon>
+
+					</span>
+
+				</mat-card-subtitle>
 			</mat-card-header>
 			<mat-card-content>
 				<p>
-					Contenido de la review
+					{{review.description}}
 				</p>
 			</mat-card-content>
 			<mat-card-actions>

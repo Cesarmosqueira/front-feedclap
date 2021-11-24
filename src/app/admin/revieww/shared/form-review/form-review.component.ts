@@ -41,6 +41,8 @@ export class FormReviewComponent implements OnInit {
     review.description = this.form.value['description'];
     review.status = "En revisión";
     review.rating = 0;
+	review.reviewer = 0;
+	review.game = 1;
 
     this.reviewService.create(review).subscribe(()=>{
       this.reviewService.getAll().subscribe();
