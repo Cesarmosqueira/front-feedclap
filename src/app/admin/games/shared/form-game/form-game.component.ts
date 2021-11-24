@@ -14,6 +14,8 @@ export class FormGameComponent implements OnInit {
 
   form!: FormGroup;
   errors: any[] = [];
+  private key: string = 'ng-auth';
+  userid!:number;
 
   loading: boolean = false;
   //@Input() libro?: any;
@@ -45,19 +47,26 @@ export class FormGameComponent implements OnInit {
   }
 
   save(){
-    // this.onSave.emit(this.form.value);
-    let game = new Game();
-    game.name = this.form.value['name'];
-    game.description = this.form.value['description'];
-    game.reviewPrice = this.form.value['reviewPrice'];
-    game.img_link = this.form.value['imgLink'];
-    game.downloadLink = this.form.value['downloadLink'];
+    
+    let user = localStorage.getItem(this.key);
+    if (user) {
+      let objUser = JSON.parse(user);
+      this.userid=objUser.user.id;
 
-    this.gameService.create(game).subscribe(()=>{
-      this.gameService.getAll().subscribe();
-    })
+      let game = new Game();
+      game.name = this.form.value['name'];
+      game.description = this.form.value['description'];
+      game.reviewPrice = this.form.value['reviewPrice'];
+      game.img_link = this.form.value['imgLink'];
+      game.downloadLink = this.form.value['downloadLink'];
 
-    this.router.navigate(['admin/games']);
+      game.developerId=this.userid;
+
+      this.gameService.create(game).subscribe(()=>{
+        this.gameService.getAll().subscribe();
+      })
+      this.router.navigate(['admin/games']);
+    }
   }
 
 }

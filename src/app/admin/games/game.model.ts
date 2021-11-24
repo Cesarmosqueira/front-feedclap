@@ -5,6 +5,7 @@ export class Game {
     img_link: string;
     name: string;
     reviewPrice: number;
+    developerId: number;
 }
 
 

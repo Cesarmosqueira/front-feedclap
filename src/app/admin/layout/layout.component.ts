@@ -53,6 +53,10 @@ export class LayoutComponent implements OnInit {
     this.userStorageService.destroy();
     this.router.navigate(['/auth/login']);
   }
+
+  verperfil(){
+    this.router.navigate(['./admin/profile/'+this.username]);
+  }
 }
 
 

@@ -35,8 +35,8 @@
   </button>
 
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>Ver perfil</button>
-    <button mat-menu-item *ngIf="tipo == 'desarrollador'">Subir un Juego</button>
+    <button mat-menu-item (click)="verperfil()">Ver perfil</button>
+    <button mat-menu-item *ngIf="tipo == 'desarrollador'" routerLink='/admin/games/new'>Subir un Juego</button>
     <button mat-menu-item (click)="signOut()"><mat-icon>logout</mat-icon> Cerrar sesión</button>
   </mat-menu>
   

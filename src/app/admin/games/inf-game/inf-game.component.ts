@@ -48,8 +48,6 @@ export class InfGameComponent implements OnInit {
   getgame(name:string) {
     this.gameService.getgame(name).subscribe((data) => {
       this.game = data;
-      //console.log(this.game);
-      //console.log(this.router.url);
     });
   }
 
