@@ -28,8 +28,8 @@ export class InfGameComponent implements OnInit {
     this.name=this.router.url.split("/")[this.router.url.split("/").length-1];
     this.getgame(this.name);
     this.getcateoriesbygame(this.name);
-	this.getReviews(this.name);
-	this.reviewerMap = new Map<number, string>();
+	  this.getReviews(this.name);
+	  this.reviewerMap = new Map<number, string>();
   }
   
   getReviews(name: string) {
@@ -37,7 +37,6 @@ export class InfGameComponent implements OnInit {
 		  .subscribe((data) => {
 				  console.log('Reviews loaded', data);
 				  this.reviews = data;
-					console.log(data);
 					for(let i = 0; i < data.length; i++){
 				    this.reviewService.getReviewerName(data[i].userId)
 								.subscribe((reviewerName) => {

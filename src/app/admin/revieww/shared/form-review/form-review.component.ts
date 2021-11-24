@@ -39,10 +39,10 @@ export class FormReviewComponent implements OnInit {
     let review = new Review();
     review.id = this.form.value['id'];
     review.description = this.form.value['description'];
-    review.status = "En revisión";
+    review.state = "En revisión";
     review.rating = 0;
-	review.reviewer = 0;
-	review.game = 1;
+	  review.userId = 0;
+	  review.gameId = 1;
 
     this.reviewService.create(review).subscribe(()=>{
       this.reviewService.getAll().subscribe();
