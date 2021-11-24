@@ -1,9 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Category, Game, Genre } from '../game.model';
-import { GameService } from '../game.service';
-import { Router } from '@angular/router';
+import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import {Review} from '../../revieww/revieww.model';
 import {ReviewService} from '../../revieww/revieww.service';
+import {Category, Game, Genre} from '../game.model';
+import {GameService} from '../game.service';
 
 @Component({
   selector: 'app-inf-game',
@@ -19,17 +19,46 @@ export class InfGameComponent implements OnInit {
   name!: string;
   stars: number[]
   reviewerMap: Map<number, string>;
+  private key: string = 'ng-auth';
+  type: string;
+  username: string;
+  isReviewer: boolean;
+  entryEnabled: boolean;
 
   constructor(private gameService:GameService,
 			  private reviewService: ReviewService,
-			  private router: Router) {}
+			  private router: Router ) {}
 
   ngOnInit(): void {
     this.name=this.router.url.split("/")[this.router.url.split("/").length-1];
     this.getgame(this.name);
     this.getcateoriesbygame(this.name);
-	  this.getReviews(this.name);
-	  this.reviewerMap = new Map<number, string>();
+	this.getReviews(this.name);
+	this.reviewerMap = new Map<number, string>();
+	this.getAll();
+  }
+
+  getAll(){
+    let user = localStorage.getItem(this.key);
+
+    if (user) {
+      let objUser = JSON.parse(user);
+      this.username=objUser.user.username;
+
+      if(objUser.user.type==1){
+        this.type='dev';
+      }
+      else{
+        this.type='rev';
+      }
+      
+    }
+    else{
+      this.username="";
+    }
+	console.log("Username", this.username)
+	console.log("Type", this.type)
+	this.isReviewer = this.entryEnabled = (this.type == 'rev');
   }
   
   getReviews(name: string) {
@@ -78,5 +107,15 @@ export class InfGameComponent implements OnInit {
   goToLink() {
     window.location.href=this.game.downloadLink;
   }
+
+	enableEntry() {
+		this.entryEnabled = true;
+		console.log('Enabled')
+	}
+	disableEntry() {
+		this.entryEnabled = false;
+		console.log('Disabled')
+	}
+		
 
 }
