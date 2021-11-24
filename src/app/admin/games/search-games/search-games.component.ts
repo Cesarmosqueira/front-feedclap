@@ -23,10 +23,10 @@ export class SearchGamesComponent implements OnInit {
   }
 
   getAll() {
+    console.log(this.name);
     this.gameService.getgamesbykeyword(this.name).subscribe((data) => {
       this.games = data;
     });
-    console.log(this.games)
   }
 
   navigate(gameName: string){

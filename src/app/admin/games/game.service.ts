@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
-import { Game, Genre } from './game.model';
+import { Game, GameGenre, Genre } from './game.model';
 
 @Injectable({
   providedIn: 'root'
@@ -41,5 +41,9 @@ export class GameService {
 
   getgamesbykeyword(name:string){
     return this.http.get<Game[]>(`${this.apiBase}/games/searches/${name}`);
+  }
+
+  creategamegenre(gamegenre:GameGenre){
+    return this.http.post(`${this.apiBase}/genre/gamegenre`,gamegenre);
   }
 }
