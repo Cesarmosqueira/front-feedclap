@@ -15,6 +15,7 @@ import {LayoutComponent} from './layout/layout.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
+import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     FormGameComponent,
     InfGameComponent,
     SearchGamesComponent,
+    InfProfileComponent,
   ],
   imports: [
     CommonModule,

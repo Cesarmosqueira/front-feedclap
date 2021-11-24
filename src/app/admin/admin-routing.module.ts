@@ -5,6 +5,7 @@ import { GameListComponent } from './games/game-list/game-list.component';
 import { InfGameComponent } from './games/inf-game/inf-game.component';
 import { NewGameComponent } from './games/new-game/new-game.component';
 import { LayoutComponent } from './layout/layout.component';
+import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
 
 
 const routes: Routes = [
@@ -27,6 +28,10 @@ const routes: Routes = [
       {
         path:'games/:game',
         component:InfGameComponent,
+      },
+      {
+        path:'profile/:user',
+        component:InfProfileComponent,
       }
     ]
   }
