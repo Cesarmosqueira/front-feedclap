@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
+import {MatButtonModule} from '@angular/material/button';
 
 
 @NgModule({
@@ -35,10 +36,11 @@ import { InfProfileComponent } from './profile/inf-profile/inf-profile.component
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-	MatChipsModule,
-	MatCardModule,
-	MatGridListModule,
-	MatPaginatorModule
+	  MatChipsModule,
+	  MatCardModule,
+	  MatGridListModule,
+	  MatPaginatorModule,
+	  MatButtonModule
   ],
 
 })

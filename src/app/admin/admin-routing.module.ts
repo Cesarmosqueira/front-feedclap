@@ -7,7 +7,6 @@ import { NewGameComponent } from './games/new-game/new-game.component';
 import { LayoutComponent } from './layout/layout.component';
 import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
 
-
 const routes: Routes = [
   {
     path:'',
@@ -32,7 +31,7 @@ const routes: Routes = [
       {
         path:'profile/:user',
         component:InfProfileComponent,
-      }
+      },
     ]
   }
 ];

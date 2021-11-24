@@ -11,10 +11,6 @@
 				<button mat-button>
 					<mat-icon>download</mat-icon>Descargar
 				</button>
-				<button mat-button>
-					<mat-icon>attach_money</mat-icon>
-					Dejar review
-				</button>
 			</mat-card-actions>
 			<mat-chip-list aria-label="Fish selection">
 				<div *ngFor="let category of categories">
@@ -33,30 +29,54 @@
 
 	</div>
 	<br>
-	<div class="reviews" *ngFor="let review of reviews">
-		<mat-card class="review-card">
-			<mat-card-header>
-				<mat-card-title> {{reviewerMap.get(review.id)}} </mat-card-title>
-				<mat-card-subtitle>
+	<div class="reviews">
+		<div class="review_entry" *ngIf="this.entryEnabled">
+			<mat-card class="review-card">
+				<mat-card-header>
+					<mat-card-title> Nueva Review: </mat-card-title>
+					<mat-card-subtitle>
 
-					<span *ngFor="let n of numSequence(review.rating);
+					</mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<form class="example-form">
+						<mat-form-field class="example-full-width" appearance="fill">
+							<mat-label>Contenido</mat-label>
+							<textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+						</mat-form-field>
+					</form>
+					<mat-card-actions>
+						<button mat-button (click)="disableEntry()">Submit</button>
+						<button mat-button (click)="disableEntry()">Cancel</button>
+					</mat-card-actions>
+				</mat-card-content>
+			</mat-card>
+		</div>
+		<div *ngFor="let review of reviews">
+			<mat-card class="review-card">
+				<mat-card-header>
+					<mat-card-title> {{reviewerMap.get(review.id)}} </mat-card-title>
+					<mat-card-subtitle>
+
+						<span *ngFor="let n of numSequence(review.rating);
 				   let i = index;">
-						<mat-icon>star</mat-icon>
+							<mat-icon>star</mat-icon>
 
-					</span>
+						</span>
 
-				</mat-card-subtitle>
-			</mat-card-header>
-			<mat-card-content>
-				<p>
-					{{review.description}}
-				</p>
-			</mat-card-content>
-			<mat-card-actions>
-				<button mat-button>LIKE</button>
-				<button mat-button>SHARE</button>
-			</mat-card-actions>
-		</mat-card>
+					</mat-card-subtitle>
+				</mat-card-header>
+				<mat-card-content>
+					<p>
+						{{review.description}}
+					</p>
+				</mat-card-content>
+				<mat-card-actions>
+					<button mat-button>LIKE</button>
+					<button mat-button>SHARE</button>
+				</mat-card-actions>
+			</mat-card>
 
+		</div>
 	</div>
 </div>
