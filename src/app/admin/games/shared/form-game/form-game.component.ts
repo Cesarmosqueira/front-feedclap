@@ -104,7 +104,7 @@ export class FormGameComponent implements OnInit {
       });
 
       /////////
-      //this.router.navigate(['admin/games']);
+      this.router.navigate(['admin/games']);
     }
   }
 

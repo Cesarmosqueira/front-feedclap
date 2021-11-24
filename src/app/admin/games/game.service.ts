@@ -46,4 +46,8 @@ export class GameService {
   creategamegenre(gamegenre:GameGenre){
     return this.http.post(`${this.apiBase}/genre/gamegenre`,gamegenre);
   }
+
+  getlistgamesdeveloper(name:string){
+    return this.http.get<Game[]>(`${this.apiBase}/users/list_games/${name}`);
+  }
 }
