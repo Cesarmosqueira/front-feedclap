@@ -57,6 +57,10 @@ export class LayoutComponent implements OnInit {
   verperfil(){
     this.router.navigate(['./admin/profile/'+this.username]);
   }
+
+  listgamesuser(){
+    this.router.navigate(['./admin/list-games/'+this.username]);
+  }
 }
 
 

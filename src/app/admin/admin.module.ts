@@ -17,7 +17,8 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
 import {MatButtonModule} from '@angular/material/button';
-
+import { MatSelectModule } from '@angular/material/select';
+import { ListGamesDeveloperComponent } from './games/list-games-developer/list-games-developer.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import {MatButtonModule} from '@angular/material/button';
     InfGameComponent,
     SearchGamesComponent,
     InfProfileComponent,
+    ListGamesDeveloperComponent,
   ],
   imports: [
     CommonModule,
@@ -40,7 +42,8 @@ import {MatButtonModule} from '@angular/material/button';
 	  MatCardModule,
 	  MatGridListModule,
 	  MatPaginatorModule,
-	  MatButtonModule
+	  MatButtonModule,
+    MatSelectModule,
   ],
 
 })

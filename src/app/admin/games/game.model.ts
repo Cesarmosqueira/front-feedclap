@@ -18,3 +18,8 @@ export class Category {
     id: number;
     name: string;
 }
+
+export class GameGenre{
+    gameId: number;
+    genreId: number;
+}
