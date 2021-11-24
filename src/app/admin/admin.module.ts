@@ -16,6 +16,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
+import {MatButtonModule} from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ListGamesDeveloperComponent } from './games/list-games-developer/list-games-developer.component';
 
@@ -37,11 +38,12 @@ import { ListGamesDeveloperComponent } from './games/list-games-developer/list-g
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,
-	MatChipsModule,
-	MatCardModule,
-	MatGridListModule,
-	MatPaginatorModule,
-  MatSelectModule
+	  MatChipsModule,
+	  MatCardModule,
+	  MatGridListModule,
+	  MatPaginatorModule,
+	  MatButtonModule,
+    MatSelectModule,
   ],
 
 })

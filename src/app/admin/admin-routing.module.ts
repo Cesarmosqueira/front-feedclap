@@ -9,7 +9,6 @@ import { SearchGamesComponent } from './games/search-games/search-games.componen
 import { LayoutComponent } from './layout/layout.component';
 import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
 
-
 const routes: Routes = [
   {
     path:'',
@@ -43,6 +42,7 @@ const routes: Routes = [
         path:'list-games/:user',
         component:ListGamesDeveloperComponent,
       }
+
     ]
   }
 ];
