@@ -6,4 +6,6 @@ export class User {
     type: number;
     nivel: number;
     exp: number;
+    informationn:string;
+    rankk:string;
 }

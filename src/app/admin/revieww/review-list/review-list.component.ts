@@ -5,6 +5,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { Review } from '../revieww.model';
 import { ReviewService } from '../revieww.service';
+import { User } from '../../user/user.model';
 
 @Component({
   selector: 'app-review-list',
@@ -54,7 +55,22 @@ export class ReviewListComponent implements OnInit {
     }
   }
 
-  accept_review(gamename: string){
-    
+  accept_review(id: number){
+    this.reviewService.getReviewbyid(id).subscribe((data)=>{
+      this.reviewService.getReviewerName(data.userId).subscribe((data2)=>{
+        let userr=new User();
+        userr=data2;
+        userr.exp+=10;
+        if(userr.exp==100){
+          userr.nivel+=1;
+          userr.exp=0;
+        }
+        console.log(userr);
+        this.reviewService.updatereviewer(userr.id,userr).subscribe(()=>{});
+      })
+    })
+    this.reviewService.delete(id).subscribe(()=>{
+      this.gettall(this.gamenamee);
+    })
   }
 }

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Review } from './revieww.model';
 import { environment } from 'src/environments/environment';
-import {User} from 'src/app/auth/shared/user.model';
+import { User } from '../user/user.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +21,7 @@ export class ReviewService {
   }
 
   getReviewerName(reviewerId: number){
-    return this.http.get<User>(`${this.apiBase}/review/reviewer/${reviewerId}`);
+    return this.http.get<User>(`${this.apiBase}/users/idddd/${reviewerId}`);
   }
 
   create(revieww: Review) {
@@ -34,5 +34,13 @@ export class ReviewService {
 
   delete(id:number) {
     return this.http.delete(`${this.apiBase}/review/${id}`);
+  }
+
+  getReviewbyid(reviewerId: number){
+    return this.http.get<Review>(`${this.apiBase}/review/${reviewerId}`);
+  }
+
+  updatereviewer(reviewerId: number,user:User){
+    return this.http.put(`${this.apiBase}/users/${reviewerId}`, user);
   }
 }
