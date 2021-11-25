@@ -1,0 +1,23 @@
+.fw-bold{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.text-end{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+.principal{
+    margin: 35px;
+}
+
+.principal .example-header{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+}
