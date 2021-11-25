@@ -19,6 +19,9 @@ import { InfProfileComponent } from './profile/inf-profile/inf-profile.component
 import {MatButtonModule} from '@angular/material/button';
 import { MatSelectModule } from '@angular/material/select';
 import { ListGamesDeveloperComponent } from './games/list-games-developer/list-games-developer.component';
+import { MatFormField, MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { ReviewListComponent } from './revieww/review-list/review-list.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,7 @@ import { ListGamesDeveloperComponent } from './games/list-games-developer/list-g
     SearchGamesComponent,
     InfProfileComponent,
     ListGamesDeveloperComponent,
+    ReviewListComponent
   ],
   imports: [
     CommonModule,
@@ -44,6 +48,8 @@ import { ListGamesDeveloperComponent } from './games/list-games-developer/list-g
 	  MatPaginatorModule,
 	  MatButtonModule,
     MatSelectModule,
+    MatFormFieldModule,
+    MatInputModule
   ],
 
 })

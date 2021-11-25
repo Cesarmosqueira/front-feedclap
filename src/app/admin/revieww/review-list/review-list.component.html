@@ -1,60 +1,53 @@
-<h3 class="fw-bold" style="text-align: center;">Lista de Reviews</h3>
-
-<div class="text-end">
-  <button mat-raised-button color="primary" routerLink="/admin/reviews/new">
-    Nueva Review
-  </button>
-</div>
-
-<div class="example-header">
-  <div>
-      <table
-        mat-table
-        [dataSource]="review"
-        matSort
-        class="mat-elevation-z8"
-        class="w-100"
-      >
-        <ng-container matColumnDef="id">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
-          <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-        </ng-container>
-    
-        <ng-container matColumnDef="description">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Descripción</th>
-          <td mat-cell *matCellDef="let element">{{ element.description }}</td>
-        </ng-container>
-    
-        <ng-container matColumnDef="rating">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
-          <td mat-cell *matCellDef="let element">{{ element.rating }}</td>
-        </ng-container>
+<div >
+  <h3 class="fw-bold" *ngIf="gamenamee">Reviews de tu juego "{{gamenamee}}"</h3>
   
-        <ng-container matColumnDef="acciones">
-          <th mat-header-cell *matHeaderCellDef mat-sort-header>Acciones</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              mat-button
-              color = "primary"
-              [routerLink]="[element.id, 'editar']"
-            >
-              <mat-icon>ballot</mat-icon>
-            </button>
-            <button mat-button color = "primary"
-              (click)="eliminar(element.id)">
-              <mat-icon>delete</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-    
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-      </table>
-      <mat-paginator>
-        [pagesize] = "3"
-        [paseSizeOptions] = "[5,10,25,100]"
-        [length] = "cantidad"
-        (page) = "mostrarMas($event)"
-      </mat-paginator>
-    </div>
-</div> 
+  <div>
+    <table
+      mat-table
+      [dataSource]="dataSource"
+      matSort
+      class="mat-elevation-z8"
+      class="w-100"
+    >
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Description">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Description</th>
+        <td mat-cell *matCellDef="let element">{{ element.description }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="Rating">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header>Rating</th>
+        <td mat-cell *matCellDef="let element">{{ element.rating }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="acciones">
+        <th mat-header-cell *matHeaderCellDef>Acciones</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-button
+            color="primary"
+            [routerLink]="[element.id, 'editar']"
+          >
+            <mat-icon (click)="accept_review(element.id)">check_circle_outline</mat-icon>
+          </button>
+          <button mat-button color="primary" (click)="drop_review(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <mat-paginator
+      [pageSize]="1"
+      [pageSizeOptions]="[]"
+      [length]="cantidad"
+    ></mat-paginator>
+  </div>
+</div>
+<router-outlet></router-outlet>

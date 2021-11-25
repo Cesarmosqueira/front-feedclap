@@ -13,7 +13,7 @@ export class ReviewService {
   constructor(private http:HttpClient) { }
 
   getAll() {
-    return this.http.get<Review[]>(`${this.apiBase}/reviews`);
+    return this.http.get<Review[]>(`${this.apiBase}/review`);
   }
 
   getReviewsFromGame(name:string){
@@ -33,6 +33,6 @@ export class ReviewService {
   }
 
   delete(id:number) {
-    return this.http.delete(`${this.apiBase}/reviews/${id}`);
+    return this.http.delete(`${this.apiBase}/review/${id}`);
   }
 }

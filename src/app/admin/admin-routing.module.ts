@@ -8,6 +8,7 @@ import { NewGameComponent } from './games/new-game/new-game.component';
 import { SearchGamesComponent } from './games/search-games/search-games.component';
 import { LayoutComponent } from './layout/layout.component';
 import { InfProfileComponent } from './profile/inf-profile/inf-profile.component';
+import { ReviewListComponent } from './revieww/review-list/review-list.component';
 
 const routes: Routes = [
   {
@@ -41,6 +42,10 @@ const routes: Routes = [
       {
         path:'list-games/:user',
         component:ListGamesDeveloperComponent,
+      },
+      {
+        path:'list-reviews/:game',
+        component:ReviewListComponent,
       }
 
     ]

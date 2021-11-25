@@ -12,7 +12,7 @@
           <input
             matInput
             (keyup)="filtrar($event)"
-            placeholder="Buscar libro"
+            placeholder="Buscar Juego"
             #input
           />
         </mat-form-field>
@@ -59,7 +59,7 @@
               color="primary"
               [routerLink]="[element.id, 'editar']"
             >
-              <mat-icon>ballot</mat-icon>
+              <mat-icon (click)="lista_reviews(element.name)">ballot</mat-icon>
             </button>
             <button mat-button color="primary" (click)="eliminar(element.id)">
               <mat-icon>delete</mat-icon>

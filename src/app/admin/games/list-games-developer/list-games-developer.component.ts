@@ -17,9 +17,8 @@ export class ListGamesDeveloperComponent implements OnInit {
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   usernamee!:string;
   username_sesion!:string;
-  games!:Game[] ;
   dataSource!: MatTableDataSource<Game>;
-  displayedColumns: string[] = ['id', 'name', 'description', 'reviewPrice',"downloadLink"];
+  displayedColumns: string[] = ['id', 'name', 'description', 'reviewPrice',"downloadLink", 'acciones'];
   cantidad: number = 0;
   private key: string = 'ng-auth';
 
@@ -41,8 +40,6 @@ export class ListGamesDeveloperComponent implements OnInit {
 
   gettall(username:string){
     this.gameService.getlistgamesdeveloper(username).subscribe((data) => {
-      this.games = data;
-      console.log(data);
       this.dataSource = new MatTableDataSource(data);
       this.cantidad=data.length;
     });
@@ -52,8 +49,16 @@ export class ListGamesDeveloperComponent implements OnInit {
     this.dataSource.filter = (<HTMLInputElement>event.target).value.trim().toLowerCase();
   }
 
-  eliminar(id: number) {
+  eliminar(id: number){
+    const ok = confirm("¿Estás seguro de eliminar el juego?")
+    if (ok){
+      this.gameService.delete(id).subscribe(()=>{
+        this.gettall(this.usernamee);
+      })
+    }
   }
 
-
+  lista_reviews(gamename: string){
+    this.router.navigate(['./admin/list-reviews/'+gamename]); 
+  }
 }
