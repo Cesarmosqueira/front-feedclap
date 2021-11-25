@@ -50,16 +50,17 @@
 					</mat-card-subtitle>
 				</mat-card-header>
 				<mat-card-content>
-					<form class="example-form">
+					<form class="review-form">
 						<mat-form-field class="example-full-width" appearance="fill">
 							<mat-label>Contenido</mat-label>
-							<textarea matInput placeholder="Ex. It makes me feel..."></textarea>
+							<textarea matInput placeholder="Ex. It makes me feel..." formControlName="content"
+								id="content" #textArea></textarea>
 						</mat-form-field>
+						<mat-card-actions>
+							<button mat-button (click)="submit()">Submit</button>
+							<button mat-button (click)="disableEntry()">Cancel</button>
+						</mat-card-actions>
 					</form>
-					<mat-card-actions>
-						<button mat-button (click)="disableEntry()">Submit</button>
-						<button mat-button (click)="disableEntry()">Cancel</button>
-					</mat-card-actions>
 				</mat-card-content>
 			</mat-card>
 		</div>

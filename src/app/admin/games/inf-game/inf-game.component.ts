@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
-import {Review} from '../../revieww/revieww.model';
+import {Review, ReviewPost} from '../../revieww/revieww.model';
 import {ReviewService} from '../../revieww/revieww.service';
 import {Category, Game, Genre} from '../game.model';
 import {GameService} from '../game.service';
@@ -115,6 +115,17 @@ export class InfGameComponent implements OnInit {
 	disableEntry() {
 		this.entryEnabled = false;
 		console.log('Disabled')
+	}
+
+	submit() {
+		let r = new ReviewPost();
+		r.description = "Review bonita";
+		r.date = "2021-11-26";
+		r.gameId = this.game.id;
+		r.rating = 5;
+		r.state = "COMPLETED";
+		r.userId = 2;
+		this.reviewService.create(r);
 	}
 		
 
