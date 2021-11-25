@@ -34,10 +34,10 @@ export class RegisterComponent implements OnInit {
       userr.name=this.name.value;
       userr.email=this.email.value;
       userr.password=this.password.value;
-      if(this.type.textContent=="Option 1"){
+      if(this.type.textContent=="developer"){
         userr.type=1;
       }
-      if(this.type.textContent=="Option 2"){
+      if(this.type.textContent=="reviewer"){
         userr.type=2;
       }
 
