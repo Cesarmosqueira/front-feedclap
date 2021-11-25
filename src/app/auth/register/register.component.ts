@@ -34,15 +34,16 @@ export class RegisterComponent implements OnInit {
       userr.name=this.name.value;
       userr.email=this.email.value;
       userr.password=this.password.value;
-      if(this.type.textContent=="developer"){
+      if(this.type.textContent=="Developer"){
         userr.type=1;
+		console.log("REGISTERING A DEVELOPER");
       }
-      if(this.type.textContent=="reviewer"){
+      if(this.type.textContent=="Reviewer"){
         userr.type=2;
       }
 
       this.registerService.register_user(userr).subscribe(
-        () => {
+        (response) => {
           this.router.navigate(['auth/login']);
           
         },
