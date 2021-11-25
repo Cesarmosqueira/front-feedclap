@@ -1,4 +1,4 @@
-<div *ngIf="userr">
+<!-- <div *ngIf="userr">
     <p>Nombre de usuario: {{userr.username}}</p>
     <p>Usuario: {{userr.name}}</p>
     <p>Nivel: {{userr.nivel}}</p>
@@ -16,5 +16,41 @@
         <p *ngIf="cantreviews != -1">Reviews realizados: {{cantreviews}} </p>
     </div>
     
-</div>
+</div> -->
+<body>
+    <div class="card" *ngIf="userr">
+        <div class="card-image">
+            <img src="../../../../assets/profile.png" alt="">
+        </div>
+        <ul class="social-icons">
+            <li>
+                <a href="#">
+                    <i class='bx bxl-facebook'></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-twitter' ></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-dribbble' ></i>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class='bx bxl-instagram' ></i>
+                </a>
+            </li>
+        </ul>
+        <div class="details">
+            <h2>{{userr.username}}</h2>
+            <h3>{{userr.name}}</h3>
+            <span class="job-title">UI Designer</span>
+        </div>
+    </div>
+
+</body>
+
 <router-outlet></router-outlet>
