@@ -69,8 +69,8 @@ export class FormGameComponent implements OnInit {
       game.reviewPrice = this.form.value['reviewPrice'];
       game.img_link = this.form.value['imgLink'];
       game.downloadLink = this.form.value['downloadLink'];
-
       game.developerId=this.userid;
+	  game.date = '2021-11-25';
 
       this.gameService.create(game).subscribe(()=>{
         this.gameService.getAll().subscribe();

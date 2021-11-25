@@ -6,6 +6,7 @@ export class Game {
     name: string;
     reviewPrice: number;
     developerId: number;
+	date: string;
 }
 
 
